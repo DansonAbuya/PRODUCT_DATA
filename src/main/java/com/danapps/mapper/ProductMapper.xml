@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.danapps.model.Product">
+
+
+ <resultMap type="Product" id="result">
+<id property="id" column="id" />
+<result property="name" column="name" />
+<result property="short_description" column="short_description" />
+<result property="price" column="price" />
+<result property="quantity" column="quantity" />
+</resultMap>
+
+
+ <select id="getAllProducts" resultType="Product" resultMap="result">
+SELECT * FROM products
+</select>
+
+
+  <delete id="deleteProduct" parameterType="int">
+DELETE FROM products WHERE id = #{productIdId}
+</delete>
+
+ <select id="getNameandPricepair" resultType="Product"  >
+SELECT id,name FROM products
+</select>
+ 
+ </mapper>
